@@ -1,6 +1,5 @@
 
 
-$fn = 360/5;
 diameter = 155;
 height = 36;
 
@@ -12,6 +11,7 @@ gap = 2;
 
 //a=77.5 b=94 C=74.667
 angle = 75;
+$fn = 360/2;
 
 module arc(a, id, od, h) {
 	// Outer ring
