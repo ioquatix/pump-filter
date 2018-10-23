@@ -15,7 +15,7 @@ $fn = 360/2;
 
 module arc(a, id, od, h) {
 	// Outer ring
-	rotate_extrude(angle=angle) translate([id/2, 0, 0]) square([(od-id)/2, h]);
+	rotate_extrude(angle=a) translate([id/2, 0, 0]) square([(od-id)/2, h]);
 }
 
 module clip() {
@@ -39,6 +39,13 @@ module grid() {
 	}
 	
 	arc(a=angle, od=diameter, id=diameter-bottom_inset, h=2);
+	
+	translate([0, 0, height]) {
+		difference() {
+			arc(a=angle, od=diameter-3, id=diameter-5, h=1);
+			rotate([0, 0, angle/2]) translate([diameter/2, 0, 1]) cube([15, 15, 2], center=true);
+		}
+	}
 	
 	translate([diameter/2, 0, 0]) clip();
 	
