@@ -1,5 +1,5 @@
 
-
+thickness = 6;
 diameter = 155;
 height = 36;
 
@@ -27,7 +27,7 @@ module clip() {
 
 module grid() {
 	difference() {
-		arc(a=angle, od=diameter, id=diameter-5, h=height);
+		arc(a=angle, od=diameter, id=diameter-thickness, h=height);
 		
 		for (z = [hole:hole+2:height-hole]) {
 			translate([0, 0, z])
@@ -42,7 +42,7 @@ module grid() {
 	
 	translate([0, 0, height]) {
 		difference() {
-			arc(a=angle, od=diameter-3, id=diameter-5, h=1);
+			arc(a=angle, od=diameter-3, id=diameter-thickness, h=1);
 			rotate([0, 0, angle/2]) translate([diameter/2, 0, 1]) cube([15, 15, 2], center=true);
 		}
 	}
